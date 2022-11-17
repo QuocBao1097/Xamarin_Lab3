@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Smartphone"
+             x:Class="lab3_Appshell_TabBarPage.Views.OppoPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            x:Name="ToolbarSearch" 
+            IconImageSource="search.png" 
+            Order="Primary" Priority="0" 
+            Clicked="ToolbarSearch_Clicked">
+        </ToolbarItem>
+        
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <RefreshView x:Name="RVOppoPhones" Refreshing="RVOppoPhones_Refreshing">
+                <CollectionView x:Name="CVOppoPhones" SelectionMode="Single" >
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="5" ></GridItemsLayout>
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <SwipeView WidthRequest="200">
+                                <SwipeView.RightItems>
+                                    <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
+                                        <SwipeItem Text="Delete" 
+                                                   BackgroundColor="Red" 
+                                                   IconImageSource="DeleteIcon.png" 
+                                                   CommandParameter="{Binding .}" 
+                                                   Invoked="SwipeItem_Invoked">
+                                        </SwipeItem>
+
+                                        <SwipeItem Text="Buy Now" 
+                                                   BackgroundColor="Green" 
+                                                   IconImageSource="BuyIcon.png" 
+                                                   CommandParameter="{Binding .}" 
+                                                   Invoked="SwipeItem_Invoked_1">
+                                        </SwipeItem>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2.4*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="{Binding ProductImageUrl}" Grid.Column="0" Grid.Row="0"
+                                   WidthRequest="90" HeightRequest="90"/>
+                                    <StackLayout Grid.Column="1" Grid.Row="0">
+                                        <Label Text="{Binding ProductName}" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label TextColor="Black" Text="{Binding ProductRating}" FontSize="16" />
+                                            <Image Source="star.png" 
+                                                   VerticalOptions="Center" 
+                                                   Aspect="AspectFill"
+                                                   HeightRequest="20" 
+                                                   WidthRequest="20" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label FontSize="16" TextColor="Black"
+                                                   Text="{Binding ProductPrice, StringFormat='{0:0,0 vnđ}' }"/>
+                                            <Image Source="FavouriteBLackIcon.png" 
+                                                   VerticalOptions="Center"
+                                                   Aspect="AspectFit" 
+                                                   HeightRequest="20" 
+                                                   WidthRequest="20">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="ImgAddToWishlist" Tapped="ImgAddToWishlist_Tapped"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                            <Image Source="AddToCartIcon.png" VerticalOptions="Center"
+                                           Aspect="Fill" HeightRequest="20" WidthRequest="20"></Image>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

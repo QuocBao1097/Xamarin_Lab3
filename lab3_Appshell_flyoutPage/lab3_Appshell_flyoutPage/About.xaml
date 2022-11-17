@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="About us"
+             x:Class="lab3_Appshell_flyoutPage.About">
+    <ContentPage.Content>
+        <StackLayout>
+          
+            <Image Aspect="AspectFit" Source="UITLogo.png" VerticalOptions="Center" WidthRequest="200" Margin="0,60,0,0"></Image>
+
+            <Label Padding="10">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Ứng dụng được viết bằng XAML và C# với nền tảng Xamarin Forms! Chi tiết vui lòng xem "
+                              TextColor="Black" FontAttributes="Bold" FontSize="Large">
+                        </Span>
+                        
+                        <Span Text="tại đây!" FontAttributes="Bold" FontSize="Large" TextColor="Blue" TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding TapCommand}"
+                                    CommandParameter="https://docs.microsoft.com/en-us/xamarin/">
+                                </TapGestureRecognizer>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

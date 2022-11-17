@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:lab3_Appshell_flyoutPage"
+             xmlns:view="clr-namespace:lab3_Appshell_flyoutPage.Views"
+             x:Class="lab3_Appshell_flyoutPage.MainPage">
+
+    <Shell.FlyoutHeader>
+        <local:HeaderContentView></local:HeaderContentView>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="MyApp" Shell.TabBarIsVisible="False" FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Icon="HomeIcon.png" Title="Home" >
+            <ShellContent ContentTemplate="{DataTemplate local:PageHome}"> </ShellContent>
+        </Tab>
+        <Tab Icon="LaptopIcon.png" Title="Laptop" >
+            <ShellContent ContentTemplate="{DataTemplate view:GamingLaptopPage}" Title="Gameming"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate view:MacbookLaptopPage}" Title="Macbook"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate view:UltrabookLaptopPage}" Title="Ultrabook"></ShellContent>
+        </Tab>
+        
+        <Tab Icon="SmartphoneIcon.png" Title="SmartPhone" >
+            <ShellContent ContentTemplate="{DataTemplate view:SamsungPage}" Title="Samsung"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate view:IphonePage}" Title="Iphone"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate view:OppoPage}" Title="Oppo"></ShellContent>
+        </Tab>
+        
+        <Tab Icon="AccessoriesIcon.png" Title="Accessories" >
+            <!--<ShellContent ContentTemplate="{DataTemplate local:PageAccessories}" ></ShellContent>-->
+            <ShellContent ContentTemplate="{DataTemplate view:USBPage}" Title="USB"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate view:HeadPhonePage}" Title="Headphone"></ShellContent>
+        </Tab>
+    </FlyoutItem>
+       
+    <ShellContent Icon="AboutIcon.png" Title="About" ContentTemplate="{DataTemplate local:About}"></ShellContent>
+    <ShellContent Icon="HelpIcon.png" Title="Help" ContentTemplate="{DataTemplate local:Help}"></ShellContent>
+</Shell>

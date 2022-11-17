@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="lab3.MainPage">
+
+    <StackLayout BackgroundColor="White" >
+        <Frame Padding=" 20" BackgroundColor="DeepPink">
+            <Label Text="20521097-Đoàn Quốc Bảo" TextColor="Aquamarine" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"></Label>
+        </Frame>
+
+        <Button Text="Picker Country" x:Name="cmdCickerCountry" FontSize="15" Clicked="cmdCickerCountry_Clicked" >
+        </Button>
+    </StackLayout>
+
+</ContentPage>

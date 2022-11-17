@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:lab3_Appshell_TabBarPage"
+             xmlns:view="clr-namespace:lab3_Appshell_TabBarPage.Views"
+             x:Class="lab3_Appshell_TabBarPage.MainPage">
+
+
+    <TabBar Title="MyApp" Shell.TabBarIsVisible="True" FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Icon="HomeIcon.png" Title="Home" >
+            <ShellContent ContentTemplate="{DataTemplate local:PageHome}"></ShellContent>
+        </Tab>
+        <Tab Icon="LaptopIcon.png" Title="Laptop" >
+            <ShellContent ContentTemplate="{DataTemplate view:GamingLaptopPage}" Title="Gameming"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate view:MacbookLaptopPage}" Title="Macbook"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate view:UltraBookLaptopPage}" Title="Ultrabook"></ShellContent>
+        </Tab>
+
+        <Tab Icon="SmartphoneIcon.png" Title="SmartPhone" >
+            <ShellContent ContentTemplate="{DataTemplate view:SamsungPage}" Title="Samsung"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate view:IphonePage}" Title="Iphone"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate view:OppoPage}" Title="Oppo"></ShellContent>
+        </Tab>
+
+        <Tab Icon="AccessoriesIcon.png" Title="Accessories" >
+            <ShellContent ContentTemplate="{DataTemplate view:USBPage}" Title="USB"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate view:HeadPhonePage}" Title="Headphone"></ShellContent>
+        </Tab>
+
+        <Tab Icon="AboutIcon.png" Title="About">
+            <ShellContent ContentTemplate="{DataTemplate local:About}"></ShellContent>
+        </Tab>
+        
+        <Tab Icon="HelpIcon.png" Title="Help">
+            <ShellContent ContentTemplate="{DataTemplate local:Help}"></ShellContent>
+        </Tab>
+    </TabBar>
+
+</Shell>

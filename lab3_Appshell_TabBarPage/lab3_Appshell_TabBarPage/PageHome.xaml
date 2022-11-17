@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="UIT Stores"
+             x:Class="lab3_Appshell_TabBarPage.PageHome">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            x:Name="ToolbarSearch" 
+            IconImageSource="search.png" 
+            Order="Primary" Priority="0" 
+            Clicked="ToolbarSearch_Clicked">
+        </ToolbarItem>
+        
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <CollectionView x:Name="CVProducts" SelectionMode="Single" SelectionChanged="CVProducts_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" 
+                                         Span="2" 
+                                         VerticalItemSpacing="5" 
+                        ></GridItemsLayout>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Image Source="{Binding ProductImageUrl}" 
+                                    Grid.Column="0"
+                                    WidthRequest="90"
+                                    HeightRequest="90"></Image>
+
+                            <StackLayout Grid.Row="1">
+                                <Label Text="{Binding ProductName}" FontSize="Medium" TextColor="Black" MaxLines="1"></Label>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="Black" Text="{Binding ProductRating}"></Label>
+                                    <Image Source="star.png" 
+                                               VerticalOptions="Center" Aspect="AspectFill" 
+                                               HeightRequest="20"
+                                               WidthRequest="20"></Image>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Medium" TextColor="Black" 
+                                                Text="{Binding ProductPrice, StringFormat='{0:0,0 vnđ}'}"></Label>
+                                    <Image Source="FavouriteBlackIcon.png" 
+                                               VerticalOptions="Center" 
+                                               Aspect="AspectFill" 
+                                               HeightRequest="20"
+                                               WidthRequest="20">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer x:Name="ImgAddToWishlist" Tapped="ImgAddToWishlist_Tapped"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="AddToCartIcon.png" 
+                                                VerticalOptions="Center" 
+                                                Aspect="Fill" HeightRequest="20"
+                                                WidthRequest="20"
+                                        ></Image>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
